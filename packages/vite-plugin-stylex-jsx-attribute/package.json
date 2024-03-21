@@ -2,6 +2,7 @@
   "name": "vite-plugin-stylex-jsx-attribute",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/lf7817/vite-plugin-stylex-jsx-attribute",
   "files": [
     "dist",
     "package.json",
@@ -23,8 +24,14 @@
     "dev": "tsc --watch",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "vite", "plugin", "stylex", "jsx", "attribute"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lf7817/vite-plugin-stylex-jsx-attribute"
+  },
+  "author": "lf7817 <535536456@qq.com>",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.24.0",
