@@ -1,0 +1,45 @@
+{
+  "name": "vite-plugin-stylex-jsx-attribute",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "dist",
+    "package.json",
+    "stylex.d.ts"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    },
+    "./stylex.d.ts": {
+      "types": "./stylex.d.ts"
+    }
+  },
+  "scripts": {
+    "cleanup": "rm -rf dist",
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/generator": "^7.23.6",
+    "@babel/parser": "^7.24.0",
+    "@babel/traverse": "^7.24.0",
+    "@babel/types": "^7.24.0",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__generator": "^7.6.3",
+    "@types/babel__traverse": "^7.20.5",
+    "@types/react": "^18.2.64",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "@stylexjs/stylex": "^0.5.1",
+    "vite": ">=5.0.0"
+  }
+}

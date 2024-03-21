@@ -1,0 +1,35 @@
+{
+  "name": "vite-plugin-stylex-jsx-attribute",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "preinstall": "node scripts/preinstall.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev:stylex": "turbo run dev --filter=vite-plugin-stylex-jsx-attribute",
+    "build:stylex": "turbo run build --filter=vite-plugin-stylex-jsx-attribute"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.8.3",
+    "@stylexjs/eslint-plugin": "^0.5.1",
+    "@types/node": "18.19.3",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "turbo": "^1.12.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
