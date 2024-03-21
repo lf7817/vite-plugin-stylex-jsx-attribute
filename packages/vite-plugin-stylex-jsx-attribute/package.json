@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-stylex-jsx-attribute",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Vite plugin that simplifies the use of StyleX",
   "homepage": "https://github.com/lf7817/vite-plugin-stylex-jsx-attribute",
   "files": [
     "dist",
