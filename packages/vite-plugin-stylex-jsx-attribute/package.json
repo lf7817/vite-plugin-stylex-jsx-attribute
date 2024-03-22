@@ -46,7 +46,7 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "@stylexjs/stylex": "^0.5.1",
+    "@stylexjs/stylex": ">=0.5.1",
     "vite": ">=5.0.0"
   }
 }
