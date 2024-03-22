@@ -21,7 +21,7 @@ const styles = stylex.create({
 export default function Demo2() {
   return (
     <div stylex={styles.wrapper}>
-      <div stylex={[styles.text('white'), styles.size, undefined]}>Demo2</div>
+      <div stylex={[styles.text('white'), styles.size]}>Demo2</div>
     </div>
   )
 }

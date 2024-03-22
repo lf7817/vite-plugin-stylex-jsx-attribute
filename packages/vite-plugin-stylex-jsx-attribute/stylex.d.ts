@@ -1,5 +1,5 @@
 declare namespace React {
   interface DOMAttributes<T> {
-    stylex?: any
+    stylex?: import('@stylexjs/stylex').StyleXStyles<Record<string, number | string | undefined>>
   }
 }
