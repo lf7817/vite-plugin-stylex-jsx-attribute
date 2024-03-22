@@ -1,4 +1,5 @@
 import * as stylex from '@stylexjs/stylex'
+import { tokens } from './token.stylex'
 
 export const styles = stylex.create({
   wrapper: {
@@ -8,7 +9,7 @@ export const styles = stylex.create({
     width: 600,
     height: 200,
     margin: '0 auto',
-    backgroundColor: 'yellowgreen',
+    backgroundColor: tokens.primaryText,
   },
   text: (color: string) => ({
     color,
