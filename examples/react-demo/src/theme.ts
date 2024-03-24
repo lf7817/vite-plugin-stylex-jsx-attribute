@@ -5,3 +5,7 @@ import { tokens } from './token.stylex'
 export const dracula = stylex.createTheme(tokens, {
   primaryText: 'blue',
 })
+
+export const theme2 = stylex.createTheme(tokens, {
+  primaryText: 'red',
+})

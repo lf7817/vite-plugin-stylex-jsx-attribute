@@ -15,6 +15,6 @@ export const styles = stylex.create({
     color,
   }),
   size: {
-    fontSize: 28,
+    fontSize: 48,
   },
 })
