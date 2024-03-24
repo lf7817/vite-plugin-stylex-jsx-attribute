@@ -10,6 +10,8 @@ interface StylexAttribute extends t.JSXAttribute {
 }
 
 const PLUGIN_NAME = 'vite-plugin-stylex-jsx-attribute'
+const STYLEX_IMPORT_NAME = '@stylexjs/stylex'
+const STYLEX_IMPORT_NAMESPACE = 'stylexImportNamespaceSpecifier'
 
 function isStylexAttribute(attr: t.JSXAttribute): attr is StylexAttribute {
   return (
@@ -30,6 +32,10 @@ function convertStylexToSpreadAttribute(attribute: StylexAttribute, stylexImport
   return t.jsxSpreadAttribute(callExpression)
 }
 
+function isCustomComponent(componentName: string) {
+  return /^[A-Z]/.test(componentName)
+}
+
 function transformStylexAttribute(code: string) {
   const ast = parser.parse(code, {
     sourceType: 'module',
@@ -41,7 +47,7 @@ function transformStylexAttribute(code: string) {
   traverse(ast, {
     ImportDeclaration(path) {
       const { source, specifiers } = path.node
-      if (source.value === '@stylexjs/stylex') {
+      if (source.value === STYLEX_IMPORT_NAME) {
         if (specifiers.length === 1 && t.isImportNamespaceSpecifier(specifiers[0]))
           stylexImportName = specifiers[0].local.name
 
@@ -50,19 +56,26 @@ function transformStylexAttribute(code: string) {
         path.skip()
       }
     },
-    JSXAttribute(path) {
-      if (isStylexAttribute(path.node)) {
-        if (!stylexImportName) {
-          stylexImportName = 'stylexImportNamespaceSpecifier'
-          const stylexImport = t.importDeclaration(
-            [t.importNamespaceSpecifier(t.identifier(stylexImportName))],
-            t.stringLiteral('@stylexjs/stylex'),
-          )
+    JSXOpeningElement(path) {
+      if (t.isJSXIdentifier(path.node.name) && !isCustomComponent(path.node.name.name)) {
+        path.traverse({
+          JSXAttribute(p) {
+            if (isStylexAttribute(p.node)) {
+              if (!stylexImportName) {
+                stylexImportName = STYLEX_IMPORT_NAMESPACE
+                const stylexImport = t.importDeclaration(
+                  [t.importNamespaceSpecifier(t.identifier(stylexImportName))],
+                  t.stringLiteral(STYLEX_IMPORT_NAME),
+                )
 
-          ast.program.body.unshift(stylexImport)
-        }
+                ast.program.body.unshift(stylexImport)
+              }
 
-        path.replaceWith(convertStylexToSpreadAttribute(path.node, stylexImportName))
+              p.replaceWith(convertStylexToSpreadAttribute(p.node, stylexImportName))
+              p.stop()
+            }
+          },
+        })
       }
     },
   })
