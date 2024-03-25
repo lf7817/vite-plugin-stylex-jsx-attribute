@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev:stylex": "turbo run dev --filter=vite-plugin-stylex-jsx-attribute",
-    "build:stylex": "turbo run build --filter=vite-plugin-stylex-jsx-attribute"
+    "build:stylex": "turbo run build --filter=vite-plugin-stylex-jsx-attribute",
+    "dev:react": "turbo run dev --filter=react-stylex-wrapper",
+    "build:react": "turbo run build --filter=react-stylex-wrapper"
   },
   "keywords": [],
   "author": "",

@@ -24,6 +24,7 @@ const styles = stylex.create({
 export default function Demo2() {
   return (
     <div stylex={styles.wrapper}>
+      <img />
       <div stylex={[styles.text('white'), styles.size, undefined]}>Demo2</div>
       <div {...stylex.props(styles.yellow)}>hello</div>
     </div>
