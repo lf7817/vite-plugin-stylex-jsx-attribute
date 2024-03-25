@@ -6,6 +6,6 @@ export const dracula = stylex.createTheme(tokens, {
   primaryText: 'blue',
 })
 
-export const theme2 = stylex.createTheme(tokens, {
+export const dracula2 = stylex.createTheme(tokens, {
   primaryText: 'red',
 })
