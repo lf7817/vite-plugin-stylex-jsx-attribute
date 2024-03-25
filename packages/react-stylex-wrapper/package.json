@@ -1,6 +1,6 @@
 {
   "name": "react-stylex-wrapper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "stylex wrapper for react",
   "homepage": "https://github.com/lf7817/vite-plugin-stylex-jsx-attribute/tree/main/packages/react-stylex-wrapper",
   "type": "module",
